@@ -18,7 +18,7 @@
 * ``git branch -b new-branch``
 
 ## Push and Pull
-* git clone origin
+* git clone http://github.com/yourAccount/repoName
 * git pull
 * git push -u origin master
 
