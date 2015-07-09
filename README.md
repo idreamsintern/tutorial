@@ -17,7 +17,10 @@
 * ``git checkout new-branch``
 * ``git branch -b new-branch``
 
-
+## Push and Pull
+* git clone origin
+* git pull
+* git push -u origin master
 
 
 
