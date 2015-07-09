@@ -11,3 +11,32 @@
 
 ## Add more files
 * ``git add -A``
+
+## Branch
+* ``git branch new-branch``
+* ``git checkout new-branch``
+* ``git branch -b new-branch``
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
