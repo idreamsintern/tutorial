@@ -23,8 +23,8 @@ sudo apt-get install oracle-java7-installer oracle-java7-set-default
 #### Runnung Emulation
 If you simply want to test your app on the phone, this step can be ommited.
 Runnung the android emulator requires qemu and CPU support.
-1. Install qemu
 
+1. Install qemu: 
 ``apt-get install qemu-kvm qemu``
 
 2. Go to the bios of you CPU (press ether F2, F10, or Del at boot time), and turn on the virtualization support.
