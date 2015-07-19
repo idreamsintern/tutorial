@@ -28,7 +28,7 @@
 
 ``git clone https://github.com/idreamsintern/DiscoverOnTravel``
 
-#### First thing you do day
+#### First thing you do every day
 ```
 git pull
 ```
