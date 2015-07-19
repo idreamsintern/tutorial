@@ -20,7 +20,7 @@ sudo apt-get install oracle-java7-installer oracle-java7-set-default
 3. Execute studio.sh, a GUI installation window should appear. Follow alone the instructions, select everything as default, your installation should be successful
 ![install2](android_studio3.png)
 
-#### Runnung Emulation
+#### Running Emulation
 If you simply want to test your app on the phone, this step can be ommited.
 Runnung the android emulator requires qemu and CPU support.
 
