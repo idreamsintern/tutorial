@@ -42,3 +42,13 @@ git push origin :completed_branch
 git remote prune origin
 git push origin master
 ```
+
+#### Go to the point at last commit
+```
+git reset --hard
+```
+
+#### Unstage all staged files
+```
+git reset
+```
