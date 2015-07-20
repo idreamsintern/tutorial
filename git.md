@@ -37,32 +37,32 @@ git pull
 
 ``git checkout -b new_branch``
 
-#### After you finish
+#### After you finished your `own_branch` for the day
 ```
 git add -A
-git commit -m "complete branch new_branch"
-git push origin new_branch
+git commit -m "complete branch own_branch"
+git push origin own_branch
 ```
 
-#### Others pushed on the same branch before you
+#### Others pushed on the same `conflict_branch` before you
 ```
 git add -A
-git commit -m "complete branch new_branch"
+git commit -m "complete branch conflict_branch"
 git pull
 git push origin new_branch
 ```
 
-#### Merge and Delete local branch 
+#### Merge and Delete `local_branch `
 (merge `completed_branch` into `master`)
 ```
 git checkout master
-git merge completed_branch
-git branch -D completed_branch
+git merge local_branch
+git branch -D local_branch
 ```
 
-#### Delete remote branch (delete completed_branch in remote)
+#### Delete `remote_branch` (delete completed_branch in remote)
 ```
-git push origin :completed_branch
+git push origin :remote_branch
 git remote prune origin
 git push origin master
 ```
