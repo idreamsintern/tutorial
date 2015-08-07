@@ -82,3 +82,14 @@ def index
   @trips = @user.trips
 end
 ```
+* When using path
+  * `<%= link_to "#{@user.name}'s Trips", user_trip_path(@user) %>`
+  * `<%= link_to "New Trip", new_user_trip_path(@user) %>`
+  * `<%= link_to "Edit", edit_user_trip_path(@user, trip) %>`
+  * `<%= link_to "show", user_trip_path(@user, trip) %>`
+  * `<%= link_to "show", [@user, trip] %>`
+  * `<%= link_to "destroy", [@user, trip], method: :delete %>`
+* When using form
+```
+<%= form_for([@user, @tweet]) do |f| %>
+```
