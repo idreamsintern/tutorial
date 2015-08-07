@@ -93,3 +93,23 @@ end
 ```
 <%= form_for([@user, @tweet]) do |f| %>
 ```
+* `app/controller/trips_controller`
+```
+def create
+  @trip = @user.trips.new(params[:trip])
+
+  respond_to do |format|
+    if @trip.save
+      format.html { redirect_to [@user, @trip]},
+                    notice: "trip successfully created." }
+      format.json { render json [@user, @trip],
+                           status: :created,
+                           location: [@user, @trip] }
+    else
+      format.html { render action :new }
+      format.json { render json @trip.errors,
+                           status: :unprocessable_entity }
+    end
+  end
+end
+```
