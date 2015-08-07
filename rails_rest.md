@@ -1,4 +1,4 @@
-## REST
+# REST
 
 * REST: REpresentitave State Transfer by Roy Fielding
 * REST in Rails 2+:
@@ -34,15 +34,51 @@ Rails server look for `_method` and set the value to `method`
 ```
 will become
   1. if `@user` isn't saved to database
-  ```
+```
   <from action="users" method="post">
     <input name="commit" type="submit" value="Create Zombie" />
   </form>
-  ```
+```
   2. if `@user` is saved to database
-  ```
+```
   <from action="users/4" method="post">
     <input name="_method" type="hidden" value="put">
     <input name="commit" type="submit" value="Update Zombie" />
   </form>
-  ```
+```
+
+## Routes
+* Routes to parameters:
+  1. `/trips?user_id=4` => parameters: `{:user_id => 4}`
+  2. `/users/4/trips  ` => parameters: `{:user_id => 4}`
+  3. `/users/4/trips/2` => parameters: `{:user_id => 4, :id => 2}`
+* If User `has_many :trips`, the bad way to find trips owned by user 4 is
+```
+/trips?user_id=4
+```
+The good way is:
+```
+/users/4/trips
+```
+  1. `config/routes.rb`
+```
+resources :users do
+  resources :trips
+end
+```
+  2. `app/controller/users_controller.rb`
+```
+before_filter :get_user
+
+def get_user
+  @user = User.find(params[:user_id])
+end
+
+def show
+  @trip = @user.trips.find(params[:id])
+end
+
+def index
+  @trips = @user.trips
+end
+```
