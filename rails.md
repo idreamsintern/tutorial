@@ -39,6 +39,14 @@ where(logged_in: true)
 where("age < 20")
 order("created_at desc").limit(3)
 ```
+* Callbacks: syntx: 
+  ```
+  event :func_name
+  def func_name
+    do_something
+  end
+  ```
+  Full list of event: {before|after}_{validation|save|create|update|destroy}
 * N+1 problem. Assume we have table User, Trip, and Trip.user_id is a foreign key that points to User._id, indicating the trip is owned by which user. Thefollowing code:
 ```
 users = User.all
