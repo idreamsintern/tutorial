@@ -61,7 +61,7 @@ users.each do |user|
   puts user.trip.price
 end
 ```
-* If we have table A and B, the following situation indicates that B should have a foreign key that points to A._id
+* If we have table A and B, we `add_index :bs, :a` when
   1. B `belongs_to :a`
   2. A `has_many :bs`
   3. A `has_one :b`
