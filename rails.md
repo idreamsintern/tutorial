@@ -1,6 +1,6 @@
 # Rails
 
-## Database
+## Models
 * ``rails g scaffold table_name attr1:type1 attr2:type2 ...``
 create a migrate file that create the table with corresponding attributes, and views, controllers.
 * ``rails g migration AddAttr1AndAttr2ToTable Attr1:type1 Attr2:type2``
@@ -31,3 +31,29 @@ rename_table  :users, :accounts
 drop_table    :users
 change_column :usres, :age, :integer, limit: 4
 ```
+
+## Models - more
+* Scope usage: inside `controller`, is a `query_clause` is very long,  change `table.query_clause` to `table.scope_name`, and put the `clause` in model as `scope :scope_name, query_clause`. Some example `query_clause` are:
+```
+where(logged_in: true)
+where("age < 20")
+order("created_at desc").limit(3)
+```
+* N+1 problem. Assume we have table User, Trip, and Trip.user_id is a foreign key that points to User._id, indicating the trip is owned by which user. Thefollowing code:
+```
+users = User.all
+users.each do |user|
+  puts user.trip.price
+end
+```
+should be re-written as
+```
+users = User.includes(:trip).all
+users.each do |user|
+  puts user.trip.price
+end
+```
+* If we have table A and B, the following situation indicates that B should have a foreign key that points to A._id
+  1. B `belongs_to :a`
+  2. A `has_many :bs`
+  3. A `has_one :b`
