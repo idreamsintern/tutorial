@@ -60,12 +60,14 @@ The good way is:
 ```
 /users/4/trips
 ```
-  1. `config/routes.rb`: ``
+  * `config/routes.rb`:
+```
 resources :users do
   resources :trips
 end
-``
-  2. `app/controller/users_controller.rb`: ``
+```
+  * `app/controller/users_controller.rb`
+```
 before_filter :get_user
 
 def get_user
@@ -79,4 +81,4 @@ end
 def index
   @trips = @user.trips
 end
-``
+```
