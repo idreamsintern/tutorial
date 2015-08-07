@@ -57,3 +57,13 @@ end
   1. B `belongs_to :a`
   2. A `has_many :bs`
   3. A `has_one :b`
+* Suppose we have table A, B, and C. And suppose A `has_many :bs`, and B `belongs_to :c` (so B has two foreign keys, B.a and B.c), we can associate A and C by A `has_many :c, through: :bs`. And the following queries:
+  1. `A.cs << C.find_by_c("someString")` will generate
+  ```
+  SELECT * FROM "cs" where c = "someString"
+  INSERT INTO "bs" (a, c) values (A.a, C.c)
+  ```
+  2. `A.cs` is equivalent to
+  ```
+  SELECT "cs".* FROM "cs" INNER JOIN "bs" ON "C.c" == "B.c" WHERE "B.a" == "a"
+  ```
