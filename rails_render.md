@@ -97,12 +97,12 @@ end
 ```
 * customize JSON reponse
 ```
-@trip.to_json(include: :user, only: [:discoun, :price], except: [:id, :created_at, :updated_at])
+@trip.to_json(include: :user, only: [:discount, :price], except: [:id, :created_at, :updated_at])
 ```
 * default json response, inside `app/models/trip.rb`
 ```
 def as_json(options = nil)
-  super(options || {includes: :user, except: [:id]})
+  super(options || {include: :user, except: [:id]})
 end
 ```
 
