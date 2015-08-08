@@ -107,3 +107,66 @@ end
 ```
 
 ## AJAX
+* add `remote: true` the the link
+```
+<%= link_to 'delete', user, method: :delete, remote: true %>
+```
+which results in
+```
+<a href="/users/5" data-method="delete" data-remote="true" rel="nofollow">
+  delete
+</a>
+```
+* allow controller to accept javascript in `app/controllers/users_controller.rbz`
+```
+respond_to do |format|
+  format.html {}
+  format.json {}
+  format.js   {} # <= add this line
+end
+```
+* Responding javascript. Inside `app/views/users/destroy.js.erb`
+```
+$('#<%= dom_id(@user) %>').fadeOut();
+```
+* refactor loop content to partial
+```
+<div id="users">
+  <% @users.each do |user| %>
+    <%= render user %>
+  <% end %>
+</div>
+```
+```
+<%= div_for user do %>
+  <%= link_to "User #{user.name}", user %>
+    <div class="actions">
+      <%= link_to 'edit', edit_user_path(user) %>
+    <%= link_to 'delete', user, method: :delete, remote: true %>
+  </div>
+<% end %>
+```
+* equivalent to
+```
+<div id="users">
+  <%= render @users %>
+</div>
+```
+* ajax form
+```
+<%= form_for(User.new, remote: true) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %
+```
+* responding javascript: `app/views/create.js.erb`
+```
+$('div#users').append('<%= escape_javascript(render @user) %>');
+$('div#<%= dom_id(@user) %>').effect('highlight');
+```
+
