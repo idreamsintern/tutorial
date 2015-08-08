@@ -97,7 +97,7 @@ end
 ```
 * customize JSON reponse
 ```
-@trip.to_json(include: user, only: [:discoun, :price], except: [:id, :created_at, :updated_at])
+@trip.to_json(include: :user, only: [:discoun, :price], except: [:id, :created_at, :updated_at])
 ```
 * default json response, inside `app/models/trip.rb`
 ```
