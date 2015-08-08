@@ -11,7 +11,7 @@ default from: windwalker@trip.com,
         reply_to: windwalker@trip.com
 def finish_transaction(user)
   @user = user
-  attachment["receipt.pdf"] = File.read("#{Rails.root}/asset/receipt.pdf")
+  attachments["receipt.pdf"] = File.read("#{Rails.root}/asset/receipt.pdf")
   mail to: @user.email, subject: "Thank you for using Wind Walker"
 end
 ```
