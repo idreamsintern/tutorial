@@ -71,7 +71,7 @@ render json: @trip, status: :created, location: @trip
 
 ## Creating custom route
 * creating '/trips/3/discount' to get the discount
-  1. method 1(less prefered): inside `config/routes.rb` add `match 'trips/:id/discount' => 'Trip#discount', as: :trip_discount`
+  1. method 1(less prefered): inside `config/routes.rb` add `match 'trips/:id/discount' => 'Trip#discount', as: :trip_discount as: :get`
   2. method 2(prefered):
 ```
 resources :trips do
