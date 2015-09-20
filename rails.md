@@ -1,5 +1,6 @@
 # Rails
-1. [Model](rails_model.md)
-2. [REST](rails_rest.md)
-3. [Asset](rails_asset.md)
-3. [Rendering](rails_render.md)
+1. [Deploy](passenger.md)
+2. [Model](rails_model.md)
+3. [REST](rails_rest.md)
+4. [Asset](rails_asset.md)
+5. [Rendering](rails_render.md)
