@@ -54,7 +54,7 @@ sudo apt-get install nginx-full passenger
 # Deploy Wind Walker
 ```
 git clone http://github.com/idreamsintern/windwalker
-sudo apt0get install imagemagick libmagickwand-dev
+sudo apt-get install imagemagick libmagickwand-dev
 cd windwalker
 bundle install
 ```
