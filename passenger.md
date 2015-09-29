@@ -79,7 +79,7 @@ server {
   passenger_enabled on;
   passenger_ruby /home/ubuntu/.rbenv/versions/2.2.3/bin/ruby;
   rails_env development;
-  root /var/www/windwalker/public;
+  root /var/www/windWalker/public;
 }
 ```
 
