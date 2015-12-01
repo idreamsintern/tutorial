@@ -22,17 +22,13 @@ ruby -v
 
 echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 gem install bundler
+gem install rails
 
 sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get install nodejs
 
-gem install rails
-gem install bundler
 
-sudo add-apt-repository ppa:chris-lea/node.js
-sudo apt-get -y update
-sudo apt-get -y install nodejs
 ```
 
 # Deploy Environment
@@ -83,4 +79,4 @@ server {
 }
 ```
 
-* `sudo ln -s /etc/nginx/sites-available/windwalker .`
+* `sudo ln -s /etc/nginx/sites-available/windwalker /etc/nginx/sites-enabled/`
