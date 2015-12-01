@@ -3,7 +3,10 @@
 sudo apt-get update
 sudo apt-get install vim tree wget git zsh git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
+```
+* Install ZSH may requice user's password when executing `chsh` command
+* If you're using key to login on AWS, try: `chsh -s $(which zsh) ubuntu`
+```
 cd
 git clone git://github.com/sstephenson/rbenv.git .rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
