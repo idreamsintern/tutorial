@@ -3,7 +3,10 @@
 sudo apt-get update
 sudo apt-get install vim tree wget git zsh git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
+```
+* Install ZSH may requice user's password when executing `chsh` command
+* If you're using key to login on AWS, try: `chsh -s $(which zsh) ubuntu`
+```
 cd
 git clone git://github.com/sstephenson/rbenv.git .rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
@@ -22,17 +25,13 @@ ruby -v
 
 echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 gem install bundler
+gem install rails
 
 sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get install nodejs
 
-gem install rails
-gem install bundler
 
-sudo add-apt-repository ppa:chris-lea/node.js
-sudo apt-get -y update
-sudo apt-get -y install nodejs
 ```
 
 # Deploy Environment
@@ -83,4 +82,4 @@ server {
 }
 ```
 
-* `sudo ln -s /etc/nginx/sites-available/windwalker .`
+* `sudo ln -s /etc/nginx/sites-available/windwalker /etc/nginx/sites-enabled/`
