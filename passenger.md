@@ -79,4 +79,4 @@ server {
 }
 ```
 
-* `sudo ln -s /etc/nginx/sites-available/windwalker .`
+* `sudo ln -s /etc/nginx/sites-available/windwalker /etc/nginx/sites-enabled/`
