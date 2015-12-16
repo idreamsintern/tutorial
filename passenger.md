@@ -29,10 +29,6 @@ sudo apt-get install nodejs
 
 gem install rails
 gem install bundler
-
-sudo add-apt-repository ppa:chris-lea/node.js
-sudo apt-get -y update
-sudo apt-get -y install nodejs
 ```
 
 # Deploy Environment
@@ -48,7 +44,7 @@ sudo chmod 600 /etc/apt/sources.list.d/passenger.list
 sudo apt-get update
 
 sudo apt-get install nginx-full passenger
-
+sudo apt-get install mysql-server mysql-client libmysqlclient-dev
 ```
 
 # Deploy Wind Walker
