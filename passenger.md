@@ -31,6 +31,17 @@ gem install rails
 gem install bundler
 ```
 
+# For Most Up-to-date Node
+```
+wget https://nodejs.org/dist/v4.2.3/node-v4.2.3.tar.gz
+tar -xzvf node-v4.2.3.tar.gz
+cd node-v4.2.3
+./configure
+make
+sudo make install
+sudo ln -s /usr/local/bin/node /usr/local/bin/nodejs
+```
+
 # Deploy Environment
 ```
 gpg --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
