@@ -103,3 +103,4 @@ LC_CTYPE="zh_TW.UTF-8"
 LC_MESSAGES="zh_TW.UTF-8"
 LC_TIME="zh_TW.UTF-8"
 ```
+Then log out and log in
