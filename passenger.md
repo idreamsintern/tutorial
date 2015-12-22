@@ -28,7 +28,6 @@ sudo apt-get update
 sudo apt-get install nodejs
 
 gem install rails
-gem install bundler
 ```
 
 # For Most Up-to-date Node
