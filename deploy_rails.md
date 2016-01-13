@@ -58,6 +58,7 @@ server {
 ```
 
 * `sudo ln -s /etc/nginx/sites-available/windwalker /etc/nginx/sites-enabled/`
+
 ### Setting up environment variable
 To use nginx-passenger, add
 ```
