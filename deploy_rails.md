@@ -1,4 +1,6 @@
-# Deploy Environment
+# Deploy (Wind Walker as example)
+
+### Install Deploying Tools
 ```
 gpg --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
 gpg --armor --export 561F9B9CAC40B2F7 | sudo apt-key add -
@@ -14,10 +16,19 @@ sudo apt-get install nginx-full passenger
 sudo apt-get install mysql-server mysql-client libmysqlclient-dev
 ```
 
-# Deploy Wind Walker
+###  Deployment
+If the project uses carrierwave, install imagemagick first
+```
+sudo apt-get install imagemagick libmagickwand-dev
+```
+* For mysql
+```
+sudo apt-get install mysql-server mysql-client libmysqlclient-dev
+```
+
+Clone your project
 ```
 git clone http://github.com/idreamsintern/windwalker
-sudo apt-get install imagemagick libmagickwand-dev
 cd windwalker
 bundle install
 ```
@@ -47,3 +58,20 @@ server {
 ```
 
 * `sudo ln -s /etc/nginx/sites-available/windwalker /etc/nginx/sites-enabled/`
+### Setting up environment variable
+To use nginx-passenger, add
+```
+passenger_env_var SECRET_KEY_BASE some_value_found_by_rake_secret;
+passenger_env_var DEVISE_SECRET_KEY some_value_instructed_by_devise;
+passenger_env_var DATABASE_DEVELOP database_name_for_development;
+passenger_env_var DATABASE_PRODUCTION database_name_for_production;
+passenger_env_var DATABASE_USER database_user;
+passenger_env_var DATABASE_PASSWORD database_password;
+```
+To use `rails console production` or `RAILS_ENV=production rake ...`, create a .secret to export all the environment variables (add it to `.gitignore` of course). Then for example
+```
+source .secret
+rails console production
+```
+
+Sometimes environment variables are not loaded into rails console, don't panic, simply stop spring `spring stop` and run the command again
